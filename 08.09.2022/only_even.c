@@ -18,7 +18,7 @@ int main() {
     int n = 0;
     int scan_result = scanf("%d", &n);
     if (scan_result <= 0) {
-        printf("input_fali");
+        printf("input_fail");
         return 0;
     }
     task(&n);
