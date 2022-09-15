@@ -1,21 +1,26 @@
 #include <stdio.h>
 
-int main() {
-    int n;
-    // получаем значение n из потока ввода (%d - означает, что ввод состоит только из цифры)
-    scanf("%d", &n);
-    // создаем переменные, которые будем использовать в коде (x - копия n, ans - будет ответ, t_pow - множитель цифры)
-    int x = n;
+
+void task(int* n) {
     int ans = 0, t_pow = 1;
-    // проходим по каждой цифре из x и если она четная, добавляем ее к ответу (ans)
-    while (x > 0) {
-        if ((x % 10) % 2 == 0) {
-            ans += x % 10 * t_pow;
+    while (*n > 0) {
+        if ((*n % 10) % 2 == 0) {
+            ans += *n % 10 * t_pow;
             t_pow *= 10;
         }
-        x /= 10;
+        *n /= 10;
     }
-    // выводим ответ
     printf("%d", ans);
+}
+
+
+int main() {
+    int n = 0;
+    int scan_result = scanf("%d", &n);
+    if (scan_result <= 0) {
+        printf("input_fali");
+        return 0;
+    }
+    task(&n);
     return 0;
 }
