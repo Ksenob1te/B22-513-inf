@@ -15,7 +15,7 @@ int main() {
     int n = 0;
     printf("Type x and n\n");
     int input_status = scanf("%lf%d", &x, &n);
-    if (input_status <= 0) {
+    if (input_status <= 1) {
         printf("Incorrect Input");
         return 0;
     }
