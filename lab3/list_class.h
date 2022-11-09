@@ -18,6 +18,7 @@ struct List {
     char **array;
     int length;
 
+    void (*destruct) (struct List *this);
     void (*fill)(struct List *this);
     void (*print)(const struct List *this);
     void (*remove_index)(struct List *this, int index);
@@ -29,6 +30,8 @@ struct List {
 extern const struct ListClass {
     struct List (*new)(int length);
 } List;
+
+void destruct(struct List *this);
 
 void fill_list(struct List *this);
 
