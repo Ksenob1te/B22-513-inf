@@ -141,6 +141,7 @@ struct List process_mass(struct List* this) {
         li ip = 0, rp = 0;
         splitString(this->array[i], &ip, &rp);
         if (rp > ip) {
+            free(this->array[i]);
             ans_array.array[ans_counter++] = create_new_number(rp, ip);
         }
         else
@@ -152,7 +153,7 @@ struct List process_mass(struct List* this) {
     return ans_array;
 }
 
-void destruct(struct List *this) {
+void free_array(struct List *this) {
     for (int i = 0; i < this->length; ++i) {
         free(this->array[i]);
     }
@@ -169,6 +170,6 @@ static struct List newList(int length) {
             .print=print_list,
             .fill=fill_list,
             .process=process_mass,
-            .destruct=destruct
+            .free_array=free_array
     };
 };

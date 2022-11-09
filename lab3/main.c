@@ -25,8 +25,8 @@ void menu() {
         int x = scanf("%d", &command);
         if (x == EOF) {
             scanf("%*[^\n]*c");
-            mainList.destruct(&mainList);
-            ansList.destruct(&ansList);
+            mainList.free_array(&mainList);
+            ansList.free_array(&ansList);
             return;
         }
         if (x == 0) {
@@ -73,7 +73,7 @@ void menu() {
                 mainList.remove_index(&mainList, index);
                 break;
             case 4:
-                ansList.destruct(&ansList);
+                ansList.free_array(&ansList);
                 ansList = mainList.process(&mainList);
                 printf("Result array: ");
                 ansList.print(&ansList);
@@ -87,8 +87,8 @@ void menu() {
                 ansList.print(&ansList);
                 break;
             case 0:
-                mainList.destruct(&mainList);
-                ansList.destruct(&ansList);
+                mainList.free_array(&mainList);
+                ansList.free_array(&ansList);
                 return;
             case -1:
                 send_command_menu();
