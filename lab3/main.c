@@ -6,7 +6,7 @@
 void send_command_menu() {
     printf("____________________________________\n");
     printf("__________Here's your menu__________\n");
-    printf("Select one option from below\n");
+    printf("____Select one option from below____\n");
     printf("[1] Add to array multiple values\n");
     printf("[2] Add new element by index\n");
     printf("[3] Delete element by index\n");
@@ -17,7 +17,8 @@ void send_command_menu() {
     printf("____________________________________\n");
 }
 void menu() {
-    struct List mainList = List.new(0), ansList = List.new(0);
+    struct List mainList = List.new(0, MEMORY_UNIT), ansList = List.new(0, MEMORY_UNIT);
+//    memory_worker(&mainList, 10);
     send_command_menu();
     while (1) {
         printf("Type command (number [0-6]) or [-1] for command menu:\n");
@@ -102,5 +103,6 @@ void menu() {
 
 int main() {
     menu();
+
     return 0;
 }
